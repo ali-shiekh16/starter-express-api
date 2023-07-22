@@ -3,10 +3,13 @@ import config from 'config';
 
 const app = express();
 
+const message = `${config.get('name')} is running on port ${config.get(
+  'port'
+)}`;
 app.listen(config.get('port'), () => {
-  console.log('Server started on port' + config.get('port'));
+  console.log(message);
 });
 
 app.get('/', (req, res) => {
-  res.send('App started on port: ' + config.get('port'));
+  res.send(message);
 });
