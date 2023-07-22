@@ -1,12 +1,10 @@
 import express from 'express';
-import config from 'config';
+import config from './config/default';
 
 const app = express();
 
-const message = `${config.get('name')} is running on port ${config.get(
-  'port'
-)}`;
-app.listen(config.get('port'), () => {
+const message = `${config.name} is running on port ${config.port}`;
+app.listen(config.port, () => {
   console.log(message);
 });
 
