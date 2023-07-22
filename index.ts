@@ -1,16 +1,17 @@
 import express, { Request, Response } from 'express';
-import config from 'config';
+// import config from 'config';
 
 const app = express();
 
-const message = `${config.get('name')} is running on port ${config.get(
-  'port'
-)}`;
+// const message = `${config.get('name')} is running on port ${config.get(
+//   'port'
+// )}`;
+const message = 'Server is up and running :)';
 
-const environment = config.util.getEnv('NODE_ENV') || 'development';
+const environment = process.env.NODE_ENV || 'dev';
 console.log('The environment is: ' + environment);
 
-app.listen(config.get('port'), () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log(message);
 });
 
