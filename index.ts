@@ -1,4 +1,7 @@
 import express, { Request, Response } from 'express';
+
+process.env['NODE_CONFIG_DIR'] = __dirname + '/config';
+
 import config from 'config';
 
 const app = express();
